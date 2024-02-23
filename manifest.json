@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "GPT Search Companion",
+    "version": "1.0",
+    "description": "Add GPT-generated insights to Google Search results.",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["*://*.google.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["gpt-response.html"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gpt-response</title>
+    <style>
+        #gpt-response {
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #f9f9f9; /* 浅灰色背景 */
+            border: 1px solid #ddd; /* 浅灰色边框 */
+            border-radius: 8px; /* 圆角边框 */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 轻微阴影效果 */
+            color: #333; /* 深灰色文字，提高对比度 */
+            font-family: Arial, sans-serif; /* 使用无衬线字体 */
+            font-size: 16px; /* 适中的字体大小 */
+            line-height: 1.5; /* 行高，提高可读性 */
+            min-height: 100px; /* 最小高度 */
+            max-width: 90%; /* 防止元素过宽 */
+            overflow-y: auto; /* 内容过多时显示滚动条 */
+        }
+
+        /* 深色模式时的样式 */
+        @media (prefers-color-scheme: dark) {
+            #gpt-response {
+                background-color: #333; /* 深色背景 */
+                color: #f9f9f9; /* 浅色文字 */
+                border-color: #444; /* 边框颜色 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="rhs">
+        <!-- 此处可以插入其他内容 -->
+        <div id="gpt-response">这里将显示GPT的回复文本。</div>
+    </div>
+</body>
+</html>
