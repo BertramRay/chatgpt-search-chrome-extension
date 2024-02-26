@@ -12,7 +12,6 @@ chrome.runtime.onMessage.addListener(async function(message, sender, sendRespons
         if (!gptResponseArea) {
             let sidebar = document.querySelector('div[id="rhs"]');
             if (!sidebar) {
-                console.log('Creating new sidebar')
                 const newSidebar = document.createElement('div');
                 newSidebar.id = 'rhs';
                 const rcnt = document.querySelector('div[id="rcnt"]');
