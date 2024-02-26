@@ -9,9 +9,10 @@ chrome.runtime.onMessage.addListener(async function(message, sender, sendRespons
     // 假设message中包含了要显示的文本 "text"
     if (message.text) {
         const gptResponseArea = document.querySelector('div[id="gpt-response"]');
-        if (!document.getElementById('gpt-response')) {
+        if (!gptResponseArea) {
             let sidebar = document.querySelector('div[id="rhs"]');
             if (!sidebar) {
+                console.log('Creating new sidebar')
                 const newSidebar = document.createElement('div');
                 newSidebar.id = 'rhs';
                 const rcnt = document.querySelector('div[id="rcnt"]');
