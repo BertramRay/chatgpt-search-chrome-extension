@@ -1,6 +1,7 @@
 // content.js
 console.log('chatgpt-search-chrome-extension/content.js loaded');
 const query = document.querySelector('textarea').value; // 获取Google搜索框的内容
+let gpt_response_div = false;
 
 // 向background.js发送消息
 chrome.runtime.sendMessage({query: query});
@@ -9,7 +10,8 @@ chrome.runtime.onMessage.addListener(async function(message, sender, sendRespons
     // 假设message中包含了要显示的文本 "text"
     if (message.text) {
         const gptResponseArea = document.querySelector('div[id="gpt-response"]');
-        if (!gptResponseArea) {
+        if (!gpt_response_div) {
+            gpt_response_div = true;
             let sidebar = document.querySelector('div[id="rhs"]');
             if (!sidebar) {
                 const newSidebar = document.createElement('div');
@@ -33,9 +35,8 @@ chrome.runtime.onMessage.addListener(async function(message, sender, sendRespons
                     }
                 })
                 .catch(err => console.error(err));
-        } else {
-            gptResponseArea.innerText = message.text;
         }
+        gptResponseArea.innerText = message.text;
     }
 });
 
